@@ -7,12 +7,11 @@ namespace Ecommerce.Domain.Common
     /// </summary>
     public interface IEntity
     {
-        String CreateUser { get; set; }
+        Int32 CreateUser { get; set; }
         DateTime CreateDate { get; set; }
-        String UpdateUser { get; set; }
+        Int32? UpdateUser { get; set; }
         DateTime? UpdateDate { get; set; }
-        String DeleteUser { get; set; }
+        Int32? DeleteUser { get; set; }
         DateTime? DeleteDate { get; set; }
-        Boolean IsActive { get; set; }
     }
 }

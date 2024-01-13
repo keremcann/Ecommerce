@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Ecommerce.Application.Contract.Customer.Queries.Customer;
+using Ecommerce.Domain.Common;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Service.Controllers
@@ -7,14 +10,28 @@ namespace Ecommerce.Service.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<String> Get()
+        IMediator _mediator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mediator"></param>
+        public CustomerController(IMediator mediator)
         {
-            return new String[]
-            {
-                "Kerem",
-                "Can"
-            };
+            _mediator = mediator;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet("getAllCustomer")]
+        public async Task<IActionResult> GetAllCustomer([FromQuery] GetCustomerQueryRequest request)
+        {
+            GenericResponse<List<GetCustomerQueryResponse>> response = await _mediator.Send(request);
+            return Ok(response);
         }
     }
 }

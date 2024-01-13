@@ -29,7 +29,8 @@ namespace Ecommerce.Core.Connection
             var response = new DbConnectionResponse();
             try
             {
-                IDbConnection _db = new SqlConnection(AppSettings.GetConnectionString());
+                String connectionString = AppSettings.GetConnectionString();
+                IDbConnection _db = new SqlConnection(connectionString);
                 _db.Open();
                 response.db = _db;
                 response.Success = true;
