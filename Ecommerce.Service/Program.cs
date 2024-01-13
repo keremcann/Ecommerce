@@ -8,6 +8,7 @@ builder.Services.AddApplicationRegistration();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHealthChecks();
 
 #region Dapper
 builder.Services.AddScoped<ICustomerRepositoryAsync, CustomerRepositoryAsync>();
@@ -16,7 +17,7 @@ builder.Services.AddScoped<ICustomerRepositoryAsync, CustomerRepositoryAsync>();
 builder.Services.AddAutoMapper(typeof(ApplicationAutoMapper));
 
 var app = builder.Build();
-
+app.UseHealthChecks("/health");
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
