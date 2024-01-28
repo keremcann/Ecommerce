@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using Ecommerce.Application.Contract.Commands.User;
-using Ecommerce.Application.Contract.Customer.Queries.Customer;
-using Ecommerce.Application.Contract.Queries.User;
+using Ecommerce.Application.Contract.Customer.Queries;
+using Ecommerce.Application.Contract.User.Commands;
 using Ecommerce.Domain.Entities;
 
 namespace Ecommerce.Application
@@ -17,7 +16,12 @@ namespace Ecommerce.Application
         public ApplicationAutoMapper() 
         {
             #region User
-            CreateMap<User, GetUserQueryResponse>().ReverseMap();
+            CreateMap<User, CreateUserCommandRequest>().ReverseMap();
+            CreateMap<User, CreateUserCommandResponse>().ReverseMap();
+            CreateMap<User, UpdateUserCommandRequest>().ReverseMap();
+            CreateMap<User, UpdateUserCommandResponse>().ReverseMap();
+            CreateMap<User, DeleteUserCommandRequest>().ReverseMap();
+            CreateMap<User, DeleteUserCommandResponse>().ReverseMap();
             #endregion
 
             #region Customer

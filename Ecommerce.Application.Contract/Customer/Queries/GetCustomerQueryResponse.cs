@@ -1,21 +1,21 @@
 ﻿using Ecommerce.Domain.Common;
 using System.Runtime.Serialization;
 
-namespace Ecommerce.Application.Contract.Customer.Queries.Customer
+namespace Ecommerce.Application.Contract.Customer.Queries
 {
     [DataContract]
     public class GetCustomerQueryResponse //: ResponseBase
     {
         [DataMember]
-        public Int32 CustomerId { get; set; }
+        public int CustomerId { get; set; }
 
         [DataMember]
-        public String FullName { get; set; }
+        public string FullName { get; set; }
 
         [DataMember]
-        public String Email { get; set; }
+        public string Email { get; set; }
 
         [DataMember]
-        public String PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

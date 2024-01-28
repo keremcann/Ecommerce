@@ -1,4 +1,4 @@
-﻿using Ecommerce.Application.Contract.Customer.Queries.Customer;
+﻿using Ecommerce.Application.Contract.Customer.Queries;
 using Ecommerce.Domain.Common;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

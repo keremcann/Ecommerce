@@ -12,6 +12,7 @@ builder.Services.AddHealthChecks();
 
 #region Dapper
 builder.Services.AddScoped<ICustomerRepositoryAsync, CustomerRepositoryAsync>();
+builder.Services.AddScoped<IUserRepositoryAsync, UserRepositoryAsync>();
 #endregion
 
 builder.Services.AddAutoMapper(typeof(ApplicationAutoMapper));
